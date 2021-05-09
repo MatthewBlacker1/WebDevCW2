@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/
+css/bootstrap.min.css">
+
+<html lang="en">
+   <head>
+       {{>header}}
+    
+<link rel="stylesheet" href=“https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   </head>
+   <body class="container">
+      <h1>{{title}}</h1>
+      
+      <div class="text-right">
+      <a href="/new" class="btn btn-primary">
+      Add new actvity
+      </a> 
+      </div>
+
+      {{#entries}}
+      <div class="card">
+         <div class="card-header">
+            {{subject}}
+         </div>
+         <div class="card-body">
+            <div class="card-text">
+               {{contents}}
+            </div>
+            <div class="card-text">
+               Written by <a href="/posts/{{author}}">{{author}}</a> , on {{published}}
+              <a href='/delete/{{_id}}' alt='delete this entry'><i class='btn btn-primary' style='font-size:24px'></i></a>
+            </div>
+           
+         <hr>
+         {{/entries}}
+         {{^entries}}
+          No entries yet.
+         {{/entries}}
+
+     
+     </body>
+ </html>
