@@ -77,17 +77,6 @@ getEntriesByUser(authorName) {
             }
 }) })
 }
-getEntriesByUser(authorName) {
-    return new Promise((resolve, reject) => {
-        this.db.find({ 'author': authorName }, function(err, entries) {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(entries);
-                console.log('getEntriesByUser returns: ', entries);
-            }
-}) })
-}
 
 
 deleteEntry(id) {
@@ -98,6 +87,8 @@ deleteEntry(id) {
             console.log(rem, 'entries deleted'); 
 } })
 }
+
+
 
 
 getAllEntries() {

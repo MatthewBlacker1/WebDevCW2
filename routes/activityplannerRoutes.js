@@ -8,6 +8,7 @@ router.get('/activities', controller.entries_list);
 router.get('/newactivity', function(req, res) {
     res.redirect('new-activity.html');
 })
+
 router.get('/new', controller.show_new_entries);
 router.get('/posts/:author', controller.show_user_entries);
 router.get('/delete/:id', controller.delete_entry);

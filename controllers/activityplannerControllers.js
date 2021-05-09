@@ -40,7 +40,7 @@ exports.show_user_entries = function(req, res) {
     let user = req.params.author;
     db.getEntrieByUser(user).then((entries) => {
         res.render('entries', {
-            'title': 'Guest Book',
+            'title': 'Planner',
             'entries': entries
         });
     }).catch((err) => {
@@ -52,6 +52,27 @@ exports.post_new_entry = function(req, res) {
         response.status(400).send("Entries must have an author.");
         return;
 }
+let DAO = require('../models/activityplannerModel.js');
+let dao = new DAO();
+controller.get('/filter/:author', function(request, response){
+    console.log("filtering " , request.params.author);
+    let user = request.params.author;
+    dao.getEntriesByUser(user)
+    .then((entries) => {
+        response.render("entries", {
+            "title": "Planner",
+            "entries": entries
+        });
+    })
+    .catch((err) => {
+        console.log('Error: ')
+        console.log(JSON.stringify(err))
+    });
+})
+controller.get('/posts', function(request, response){
+    console.log("filtering for author " , request.query.author);
+})
+
 db.addEntry(req.body.author, req.body.activityGoal, req.body.contents);
 res.redirect('/');
 }
