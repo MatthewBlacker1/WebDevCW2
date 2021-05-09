@@ -21,7 +21,7 @@ css/bootstrap.min.css">
       {{#entries}}
       <div class="card">
          <div class="card-header">
-            {{subject}}
+            {{activityGoal}}
          </div>
          <div class="card-body">
             <div class="card-text">
@@ -29,7 +29,10 @@ css/bootstrap.min.css">
             </div>
             <div class="card-text">
                Written by <a href="/posts/{{author}}">{{author}}</a> , on {{published}}
-              <a href='/delete/{{_id}}' alt='delete this entry'><i class='btn btn-primary' style='font-size:24px'></i></a>
+              <a href='/delete/{{_id}}' alt='delete this entry'><i class='btn btn-primary' style='font-size:14px'>delete</i></a>
+            </div>
+            <div class="card-text">
+              <label for="completed"> Goals Completed (Tick box if completed) </label><br>  <input type="checkbox" id="completed" name="completedbox" value="Completed" right: 150px;>
             </div>
            
          <hr>

@@ -11,7 +11,7 @@ class GuestBook {
 
  init() {
     this.db.insert({
-        subject: 'Pushups',
+        activityGoal: 'Pushups',
         contents: '3 sets, 20 reps, 10 minutes',
         published: '2021-02-20',
         author: 'Frank'
@@ -19,7 +19,7 @@ class GuestBook {
     console.log('db entry Frank inserted');
    
     this.db.insert({
-        subject: "Bike Ride",
+        activityGoal: "Bike Ride",
         contents: '45 minutes, regular route',
         published: '2021-01-13',
         author: 'Jenny'
@@ -27,7 +27,7 @@ class GuestBook {
     console.log('db entry Jenny inserted');
  
  this.db.insert({
-    subject: "Cook Dinner",
+    activityGoal: "Cook Dinner",
     contents: '1 hour, New recipe, Natural ingredients',
     published: '2021-03-10',
     author: 'Dan'
@@ -49,10 +49,10 @@ getFrank()
     })  
 }
 
-addEntry(author, subject, contents) {
+addEntry(author, activityGoal, contents) {
     var entry = {
         author: author,
-        subject: subject,
+        activityGoal: activityGoal,
         contents: contents,
         published: new Date().toISOString().split('T')[0]
     }

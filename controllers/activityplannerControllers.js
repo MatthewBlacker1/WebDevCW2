@@ -4,7 +4,7 @@ const db = new guestbookDAO();
 db.init()
 
 exports.delete_entry = function(req, res) { console.log("id in delete_entry", req.params.id);
-    res.send('<h1>Delete entry called.</h1>'); 
+    res.send('<h1>Activity added, return to previous page</h1>'); 
     db.deleteEntry(req.params.id);
 }
     
@@ -52,7 +52,7 @@ exports.post_new_entry = function(req, res) {
         response.status(400).send("Entries must have an author.");
         return;
 }
-db.addEntry(req.body.author, req.body.subject, req.body.contents);
+db.addEntry(req.body.author, req.body.activityGoal, req.body.contents);
 res.redirect('/');
 }
 
